@@ -23,15 +23,19 @@ Currently only JSON objects are supported. I will extend it for XML also. Howeve
 The `JSON_OBJECT` can be obtained by using `$.parseJSON()` in a string containing a json structure or in the most common method, with the xhr object returned by an ajax call.
 
 
-		tableSorterOpt:{
-			widthFixed: true
-		}, tableHeads: {
+		tableHeads: { 
 			values: [
 				{headText:'User'},
 				{headText: 'Tweet'},
 				{headText:'Metadata'}
 			]
-		},tableData: {
+		}
+
+
+In `tableHeads` is where you setup your `<thead>` and `<tfoot>`. Each `headText` is one Column header/footer. Remember to use the same number of `headText` in `fieldTxt`.
+
+
+		tableData: {
 			emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
 			dataRoot:'results',
 			dataRepeat: {
@@ -41,13 +45,35 @@ The `JSON_OBJECT` can be obtained by using `$.parseJSON()` in a string containin
 				{fieldTxt: '%{metadata.result_type}', emptyTxt:'N/D'}
 				]
 			}
-		}, tablePreCallback: {
-			tbCb: testcallback
-		}, tableCallback: {
+		}
+	
+In `tableData` you will define:
+
+* `emptyMsg`: The message to show when JSON is empty or null;
+* `dataRoot`: The root of the info, normally the KEY where all object childs with the key/values are stored. See example below to understand better.
+* `dataRepeat`: Here is where, inside the `values`, declare your columns. See next.
+* `dataRepeat values`: Each object, containing at least `fieldTxt`, will be each column. The number needs to be the same of `tableHeads`, or i will warn you (and will mess up the table, since there is no colspan).
+	* `fieldTxt`: TODO explanation
+	* `emptyTxt`: TODO explanation
+
+		
+		tablePreCallback: {
 			tbCb: testcallback
 		}
-	});
+		
+In `tablePreCallback` .. TODO explanation
+		
+		tableCallback: {
+			tbCb: testcallback
+		}
+		
+In `tableCallback` .. TODO explanation
+				
+		tableSorterOpt:{
+			widthFixed: true
+		}
 
+In `tableSorterOpt` .. TODO explanation
 
 
 Examples:
