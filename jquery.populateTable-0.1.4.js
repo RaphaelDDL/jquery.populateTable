@@ -1,5 +1,5 @@
 /*
- * jQuery populateTable v0.1.3
+ * jQuery populateTable v0.1.4
  * http://raphaelddl.com
  * 
  * Copyright (c) 2012 Raphael "DDL" Oliveira
@@ -36,7 +36,7 @@
 	// $(tableElem).populateTable({opts});
 	// =============== */
     $.fn.extend({
-        populateTable: function(options) {
+        populateTable: function(dataToInsert, options) {
             var defaults = {
             	tableSorter: {
 					applyTS: false,
@@ -46,9 +46,7 @@
                 tablePreCallback: null,
                 tableCallback: null,
                 tableData: {
-					data: null,
 					emptyMsg: 'No data available.',
-					loadMsg: 'Loading..',
 					dataRoot:null,
 					dataRepeat: null
 				}
@@ -62,14 +60,6 @@
                 
                 //lifting some empty vars
                 var headList = '', footList = '', finalHeader = '', tableInsertData = '', dataInserted = '';
-                
-                /* ===============
-				// Adding Loading msg
-				// while JS works
-				// =============== */
-				if($.type(o.tableData.data) == 'object'){
-					$(theTable).html('<tr><td style="vertical-align:middle;text-align:center;padding:5px 0;">'+o.tableData.loadMsg+'</td></tr>');
-				}
                 
                	/* ===============
 				// Creating the 
@@ -116,8 +106,8 @@
 				// Lets populate, dood!
 				// Warning: crappy code below
 				// =============== */
-				if($.type(o.tableData.data) == 'object'){
-					var dataObj = o.tableData['data'];
+				if($.type(dataToInsert) == 'object'){
+					var dataObj = dataToInsert;
 					var dataRt = o.tableData['dataRoot'];
 					var dataInfo = dataObj[dataRt];
 					var dataValues = o.tableData.dataRepeat.values;
@@ -190,7 +180,7 @@
 				/* ===============
 				// Inserting all data
 				// =============== */
-				if($.type(o.tableData.data) != "null"){
+				if($.type(dataToInsert) != "null"){
 					$(theTable).html(''); //Clear Loading
 					$(theTable).prepend(finalHeader);
 					$(theTable).append(tableInsertData);

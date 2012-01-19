@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jQuery populateTable v0.1.3</title>
+	<title>jQuery populateTable v0.1.4</title>
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="author" content="Raphael 'DDL' Oliveira" />
@@ -13,46 +13,50 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
 	<script type="text/javascript" src="http://jquery-xml2json-plugin.googlecode.com/svn/trunk/jquery.xml2json.js"></script>
-	<script type="text/javascript" src="jquery.populateTable-0.1.3.min.js"></script>
+	<script type="text/javascript" src="jquery.populateTable-0.1.4.min.js"></script>
 
 	<script type="text/javascript">
 		$(function(){
 
-			xhrJson = $.parseJSON('{"count":33,"editorials":[{"author":{"name":"Reginaldo","info":{"id":"123","avatar":"path.to.img_regisnaldo"}},"authorizedRoles":null,"body":"Cerca de 40 mil habitantes de Koblenz, na Alemanha, tiveram que deixar suas casas neste domingo, 4, para que uma grande bomba remanescente da Segunda Guerra Mundial pudesse ser desarmada com segurana.Leia tambm: EUA desativam ltima bomba nuclear da Guerra FriaA bomba, que pesava quase duas toneladas, foi encontrada no leito do rio Reno depois que o nvel da gua baixou devido a um perodo de seca. Quase metade da populao da cidade alem foi afetada pela operao.Bomba britnicaDois hospitais e uma priso tiveram que ser esvaziados, naquela que foi a maior operao de retirada de moradores por causa de uma bomba na Alemanha desde o fim da Segunda Guerra Mundial.A bomba foi lanada em Koblenz pela Fora Area Britnica. Alm desta bomba, uma outra, menor, lanada pelos EUA, tambm foi desarmada com sucesso.Fontes: BBC Brasil - Cidade alem tem populao retirada devido bomba da Segunda Guerra Mundial","date":null,"id":"1e62e8a9-eb22-45e1-aed3-4a57af21d273","multimedias":null,"subject":"NO LEITO DO RENO","subtitle":"Bomba encontrada no leito do rio Reno foi desarmada com sucesso neste domingo, 4","thumb":null,"title":"Alemanha esvazia meia cidade para desativar bomba da II Guerra"},{"author":{"name":"Raphael","info":{"id":"456","avatar":"path.to.img_raphael"}},"authorizedRoles":null,"body":"A OCDE, uma organizao de pases ricos, emitiu uma nova ronda de previses econmicas para seus pases membros e outros importantes mercados em emergncia em 28 de novembro. Seu cenrio bsico envolve uma recesso amena na Europa e uma desacelerao da economia nos outros pases ricos.Espera-se que o crescimento do PIB na zona do euro caia de 1,6%{ esse ano para 0,2} em 2012.Enquanto isso a economia americana deve registrar um 2%{ um pouco mais saudvel. Considerados como um todo, os 34 pases que formam a OCDE correspondem a cerca de dois teros do PIB mundial, mas OCDE prev que seus membros contribuiro em mdia apenas 28} do crescimento trimestral do PIB entre 2012 e 2013.Fontes: The Economist - The idle rich","date":null,"id":"25ee3601-e9b8-4c01-a5c1-233d4c8dbdfa","multimedias":null,"subject":"ECONOMIA","subtitle":"Pases da OCDE, sobrecarregados por dvidas, reduziro o crescimento","thumb":null,"title":"Previses para a economia mundial"}]}');
-		
-
-			
-			
-			xhrXml = $.xml2json('<'+'?xml version="1.0" encoding="UTF-8" ?'+'><blogs><blog><views>656</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://entretenimento.r7.com/blogs/meuteunoseu</blog_url><link_to_post>http://entretenimento.r7.com/blogs/meuteunoseu/2012/01/18/cuoco-com-sua-namorada-53-anos-mais-jovem-nao-percebo-a-diferenca-de-idade/</link_to_post><post_title>Cuoco com sua namorada 53 anos mais jovem: &#8220;Não percebo a diferença de idade&#8221;</post_title></blog><blog><views>527</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://entretenimento.r7.com/blogs/gustavo-sarti</blog_url><link_to_post>http://entretenimento.r7.com/blogs/gustavo-sarti/2012/01/18/brasil-x-inglaterra-veja-os-biquinis-de-fernanda-paes-leme-e-florence-welch/</link_to_post><post_title>Brasil X Inglaterra: veja os biquínis de Fernanda Paes Leme e Florence Welch</post_title></blog><blog><views>489</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://noticias.r7.com/blogs/ricardo-kotscho</blog_url><link_to_post>http://noticias.r7.com/blogs/ricardo-kotscho/2012/01/18/a-tragedia-do-navio-e-o-fake-show-do-bbb/</link_to_post><post_title>A tragédia do navio e o &#8220;fake show&#8221; do BBB</post_title></blog><blog><views>466</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://noticias.r7.com/blogs/carros</blog_url><link_to_post>http://noticias.r7.com/blogs/carros/2012/01/18/quase-tudo-pronto-para-o-camaro-zl1/</link_to_post><post_title>Quase tudo pronto para o Camaro ZL1</post_title></blog><blog><views>436</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://esportes.r7.com/blogs/cosme-rimoli</blog_url><link_to_post>http://esportes.r7.com/blogs/cosme-rimoli/2012/01/18/luxemburgo-pede-afastamento-de-ronaldinho-gaucho-por-ter-ficado-com-mulher-na-concentracao-do-flamengo-diretoria-nega-e-manda-o-treinador-nao-divulgar-o-assunto/</link_to_post><post_title>Luxemburgo pede afastamento de Ronaldinho Gaúcho por ter ficado com mulher na concentração do Flamengo. Diretoria nega. E manda o treinador não divulgar o assunto&#8230;</post_title></blog><blog><views>427</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://entretenimento.r7.com/blogs/fabiola-reipert</blog_url><link_to_post>http://entretenimento.r7.com/blogs/fabiola-reipert/2012/01/18/minisserie-de-dercy-aumenta-turismo-em-cidade-natal-e-venda-de-produtos-sobre-ela/</link_to_post><post_title>Minissérie de Dercy aumenta turismo em cidade natal e venda de produtos sobre ela</post_title></blog><blog><views>386</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://entretenimento.r7.com/blogs/te-dou-um-dado</blog_url><link_to_post>http://entretenimento.r7.com/blogs/te-dou-um-dado/2012/01/18/freebettyboop/</link_to_post><post_title>#FREEBETTYBOOP</post_title></blog><blog><views>297</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://noticias.r7.com/blogs/daniel-castro</blog_url><link_to_post>http://noticias.r7.com/blogs/daniel-castro/2012/01/18/video-imagens-de-sexo-no-bbb-foram-ao-ar-em-horario-adequado/</link_to_post><post_title>Vídeo: Imagens de sexo no BBB foram ao ar em horário adequado</post_title></blog><blog><views>232</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://noticias.r7.com/blogs/querido-leitor</blog_url><link_to_post>http://noticias.r7.com/blogs/querido-leitor/2012/01/12/ontem-a-mulher-de-laranja-e-hoje-luizaestanocanada/</link_to_post><post_title>Ontem, a Mulher de Laranja e hoje #LuizaEstaNoCanada</post_title></blog><blog><views>193</views><blog_name><name>Meuteunoseu - R7.com</name></blog_name><blog_url>http://noticias.r7.com/blogs/nirlando-beirao</blog_url><link_to_post>http://noticias.r7.com/blogs/nirlando-beirao/2012/01/18/bbb-12-o-edredom-tambem-nao-merece-castigo/</link_to_post><post_title>BBB 12: o edredom também não merece castigo?</post_title></blog></blogs>');
-			
-			
-			$('#tableJSON').populateTable({
-				tableSorterOpt:{
-					widthFixed: true
-				}, tableHeads: {
-					values: [
-						{headText:'T&iacute;tulo'},
-						{headText:'Assunto'},
-						{headText: 'Avatar'},
-						{headText:'Autor'},
-						{headText:'Texto'}
-					]
-				},tableData: {
-					data: xhrJson,
-					emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
-					loadMsg: 'Carregando..',
-					dataRoot:'editorials',
-					dataRepeat: {
-					values: [
-						{fieldTxt: '<strong><a href="?p=library-editorial-detail&id=%{author.info.id}">%{title}</a></strong>', emptyTxt:'N/D'},
-						{fieldTxt: '%{subject}', emptyTxt:'N/D'},
-						{fieldTxt: '%{author.info.avatar}', emptyTxt:'N/D'},
-						{fieldTxt: '%{author.name}', emptyTxt:'N/D'},
-						{fieldTxt: '%{body}', emptyTxt:'N/D'}
-						]
-					}
+			$.ajax({
+				url: 'http://search.twitter.com/search.json',
+				dataType: 'jsonp', //html,text,script,json/p,xml
+				async: true,
+				data: 'q=hadouken',
+				error: function(xhr, textStatus, errorThrown){
+					console.log('===> Error');
+					
+				},
+				success: function(xhr, textStatus, errorThrown) {
+					console.log('===> Success');
+					createTableJSON(xhr);
 				}
 			});
+			
+			
+			function createTableJSON(xhrJson){
+				$('#tableJSON').populateTable(xhrJson,{
+					tableSorterOpt:{
+						widthFixed: true
+					}, tableHeads: {
+						values: [
+							{headText:'User'},
+							{headText: 'Tweet'},
+							{headText:'Metadata'}
+						]
+					},tableData: {
+						emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
+						dataRoot:'results',
+						dataRepeat: {
+						values: [
+							{fieldTxt: '<img src="%{profile_image_url}" style="float:left;width:32px;height:32px;margin:0 10px 5px 0;" alt="" /><strong>%{from_user_name}</strong><br /><a href="http://twitter.com/%{from_user}">@%{from_user}</a>', emptyTxt:'N/D'},
+							{fieldTxt: '%{text}', emptyTxt:'N/D'},
+							{fieldTxt: '%{metadata.result_type}', emptyTxt:'N/D'}
+							]
+						}
+					}
+				});
+			}
 			
 			/*, tablePreCallback: {
 					tbCb: testcallback
@@ -61,17 +65,16 @@
 				},
 			*/
 			
+			xhrXml = $.xml2json('<'+'?xml version="1.0" encoding="UTF-8" ?'+'><blogs><blog><views>714</views><blog_name>Fabíola Reipert</blog_name><blog_url>http://entretenimento.r7.com/blogs/fabiola-reipert</blog_url><link_to_post>http://entretenimento.r7.com/blogs/fabiola-reipert/2012/01/19/pagodeiro-que-namora-atriz-tem-amante-popozuda-em-sao-paulo/</link_to_post><post_title>Pagodeiro que namora atriz tem amante popozuda em São Paulo</post_title></blog><blog><views>589</views><blog_name>Gustavo Sarti</blog_name><blog_url>http://entretenimento.r7.com/blogs/gustavo-sarti</blog_url><link_to_post>http://entretenimento.r7.com/blogs/gustavo-sarti/2012/01/19/gustavo-aprova-juliana-knust/</link_to_post><post_title>Gustavo APROVA: Juliana Knust</post_title></blog><blog><views>491</views><blog_name>Cosme Rímoli</blog_name><blog_url>http://esportes.r7.com/blogs/cosme-rimoli</blog_url><link_to_post>http://esportes.r7.com/blogs/cosme-rimoli/2012/01/19/torcidas-organizadas-prometem-infernizar-a-vida-de-adriano-ate-que-va-embora-do-corinthians-a-rejeicao-e-total-ao-atacante-de-103-quilos/</link_to_post><post_title>Torcidas organizadas prometem infernizar a vida de Adriano. Até que vá embora do Corinthians. A rejeição é total ao atacante de 103 kg&#8230;</post_title></blog><blog><views>388</views><blog_name>Marcos Pereira</blog_name><blog_url>http://noticias.r7.com/blogs/marcos-pereira</blog_url><link_to_post>http://noticias.r7.com/blogs/marcos-pereira/2012/01/19/dois-crimes-duas-medidas/</link_to_post><post_title>Dois crimes, duas medidas</post_title></blog><blog><views>329</views><blog_name>Rubens Ewald Filho</blog_name><blog_url>http://noticias.r7.com/blogs/rubens-ewald-filho</blog_url><link_to_post>http://noticias.r7.com/blogs/rubens-ewald-filho/2012/01/19/estreia-as-aventuras-de-tintim-o-segredo-do-unicornio/</link_to_post><post_title>Estreia: As Aventuras de Tintim &#8211; O Segredo do  Unicórnio</post_title></blog><blog><views>267</views><blog_name>Daniel Castro</blog_name><blog_url>http://noticias.r7.com/blogs/daniel-castro</blog_url><link_to_post>http://noticias.r7.com/blogs/daniel-castro/2012/01/18/video-imagens-de-sexo-no-bbb-foram-ao-ar-em-horario-adequado/</link_to_post><post_title>Vídeo: Imagens de sexo no BBB foram ao ar em horário adequado</post_title></blog><blog><views>167</views><blog_name>Rosana Hermann - Querido Leitor  - R7</blog_name><blog_url>http://noticias.r7.com/blogs/querido-leitor</blog_url><link_to_post>http://noticias.r7.com/blogs/querido-leitor/2012/01/19/meme-para-bom-entendedor-meia-piada/</link_to_post><post_title>Meme &#8211; para bom entendedor meia piada</post_title></blog><blog><views>148</views><blog_name>Edu Guedes</blog_name><blog_url>http://noticias.r7.com/blogs/edu-guedes</blog_url><link_to_post>http://noticias.r7.com/blogs/edu-guedes/2011/07/11/misto-quente-de-forno/</link_to_post><post_title>Misto quente de forno</post_title></blog><blog><views>118</views><blog_name>Julio Sergio Cardozo</blog_name><blog_url>http://noticias.r7.com/blogs/julio-cardozo</blog_url><link_to_post>http://noticias.r7.com/blogs/julio-cardozo/2012/01/19/sem-nenhuma-experiencia-em-busca-do-primeiro-emprego/</link_to_post><post_title>Sem nenhuma experiência, em busca do primeiro emprego</post_title></blog><blog><views>91</views><blog_name>Carolina Minha Filha</blog_name><blog_url>http://entretenimento.r7.com/blogs/carolina-minha-filha</blog_url><link_to_post>http://entretenimento.r7.com/blogs/carolina-minha-filha/2012/01/18/porque-senhor-por-que-acho-que-e-tipo-um-apelo-sera/</link_to_post><post_title>PORQUÊ SENHOR, POR QUÊ? Acho que é tipo um apelo&#8230; Será?</post_title></blog></blogs>');
 			
-			$('#tableXML').populateTable({
+			$('#tableXML').populateTable(xhrXml,{
 				tableHeads: {
 					values: [
 						{headText:'T&iacute;tulo'},
 						{headText:'Autor'}
 					]
 				},tableData: {
-					data: xhrXml,
 					emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
-					loadMsg: 'Carregando..',
 					dataRoot:'blog',
 					dataRepeat: {
 					values: [
@@ -84,33 +87,57 @@
 					tableSorterOpt:{
 						widthFixed: true
 					}
-				}
+				}/*, tableCallback: {
+					tbCb: testcallback
+				}*/
 				
 			});
 			
 		});
 		
 		function testcallback(){
-			alert('tst');
+			alert('Callback after');
 		}
 	</script>
 
 </head>
 <body id="body">
-	<h1>jQuery populateTable v0.1.3 <small>by <a href="http://raphaelddl.com">RaphaelDDL</a></small></h1>
-	
-	<table class="zebra-striped" id="tableJSON"></table>
-	<table class="zebra-striped" id="tableXML"></table>
-
-	<div class="container">
+<div class="container">
 		<div class="row">
-			<div class="span16 page-split">
+			<div class="span16">
+				<h1>jQuery populateTable v0.1.4 <small>by <a href="http://raphaelddl.com">RaphaelDDL</a></small></h1>
+			</div>
+		</div>
+	
+		<hr />
+
+		<div class="row">
+			<div class="span16">
+				<h4>Table populated by Twitter's Search JSON - 'Hadouken'</h4>
+				<table class="zebra-striped" id="tableJSON"></table>
+			</div>
+		</div>
+		
+		<hr />
+		
+		<div class="row">
+			<div class="span16">
+				<h4>Table populated by XML (Using xml2json)</h4>
+				<table class="zebra-striped" id="tableXML"></table>
+			</div>
+		</div>
+
+		<hr />
+
+		<div class="row">
+			<div class="span16">
 				<p class="txt-center"><small>populateTable &copy; Copyright 2012 - <a href="http://raphaelddl.com">Raphael 'DDL' Oliveira</a></small></p>
 				<p class="txt-center"><small>All other trademarks/codes are the property of their respective owners.</small></p>
 			</div>
 		</div>
+		
+		
 	</div>
-
 
 </body>
 </html>
