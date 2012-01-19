@@ -1,6 +1,9 @@
 jQuery populateTable by [RaphaelDDL][rddl]
 =============
 
+>>---README still WIP. Very confusing. Wait me finish.
+
+
 A jQuery plugin that populate tables in any way user want, including: adding html, concatenating values into a single column, setting default value when key/value is null and other stuff.
 
 
@@ -16,12 +19,16 @@ Installation and Options Explanation
 Currently only JSON objects are supported. I will extend it for XML also. However, while we don't have this option, you can use the epic [jQuery XML to JSON Plugin][xml2json] to transform XML into JSON object.
 
 
-### Explanation on how use the Options
+Markup
+-------
 
 	$('#yourTable').populateTable( JSON_OBJECT ,{ OPTIONS });
 
 The `JSON_OBJECT` can be obtained by using `$.parseJSON()` in a string containing a json structure or in the most common method, with the xhr object returned by an ajax call.
 
+
+
+### Options
 
 		tableHeads: { 
 			values: [
@@ -34,6 +41,7 @@ The `JSON_OBJECT` can be obtained by using `$.parseJSON()` in a string containin
 
 In `tableHeads` is where you setup your `<thead>` and `<tfoot>`. Each `headText` is one Column header/footer. Remember to use the same number of `headText` in `fieldTxt`.
 
+-------
 
 		tableData: {
 			emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
@@ -56,18 +64,23 @@ In `tableData` you will define:
 	* `fieldTxt`: TODO explanation
 	* `emptyTxt`: TODO explanation
 
+-------
 		
 		tablePreCallback: {
 			tbCb: testcallback
 		}
 		
 In `tablePreCallback` .. TODO explanation
+	
+-------
 		
 		tableCallback: {
 			tbCb: testcallback
 		}
 		
 In `tableCallback` .. TODO explanation
+
+-------
 				
 		tableSorterOpt:{
 			widthFixed: true
