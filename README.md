@@ -6,10 +6,9 @@ A jQuery plugin that populate tables in any way user want, including: adding htm
 
 ### Installation
 
-Include jquery in your page if you haven't done so. `<script type="text/javascript" src="path/to/jquery-1.7.1.min.js"></script>`
-Include populateTable .js file in your page also. `<script type="text/javascript" src="path/to/jquery.populateTable-0.1.4.min.js"></script>`
-
-This plugin supports [TableSorter by Christian Bach][tbls] so if you want, add it also `<script type="text/javascript" src="path/to/jquery.tablesorter.min.js"></script>`
+* Include jQuery library in your page header if you haven't done so. `<script type="text/javascript" src="path/to/jquery-1.7.1.min.js"></script>`. Tested only in 1.7.1, need to check on lower ones.
+* Include populateTable .js file in your page header also. `<script type="text/javascript" src="path/to/jquery.populateTable-0.1.4.min.js"></script>`
+* This plugin supports [TableSorter by Christian Bach][tbls] so if you want, add it also `<script type="text/javascript" src="path/to/jquery.tablesorter.min.js"></script>`
 
 
 ### How to use
