@@ -4,6 +4,9 @@ jQuery populateTable by [RaphaelDDL][rddl]
 A jQuery plugin that populate tables in any way user want, including: adding html, concatenating values into a single column, setting default value when key/value is null and other stuff.
 
 
+Installation and Options Explanation
+-------
+
 ### Installation
 
 * Include jQuery library in your page header if you haven't done so. `<script type="text/javascript" src="path/to/jquery-1.7.1.min.js"></script>`. Tested only in 1.7.1, need to check on lower ones.
@@ -47,8 +50,10 @@ The `JSON_OBJECT` can be obtained by using `$.parseJSON()` in a string containin
 
 
 
+Examples:
+-------
 
-### How to use
+### Example: Twitter's Search JSON
 
 Considering you already know what is JSON and understand it's structure, let's take Twitter's Search JSON as example (removed some info not needed), since it's well constructed and easy to understand:
 
@@ -113,54 +118,45 @@ We'll use `results` as our root and it's child objects as our data for rows. The
 
 2. Now get your JSON with your preferred way (AJAX call, for e.g.) and call populateTable in the `success`. (I like to separate the call from populateTable using a function not mess with AJAX but it's up to you).
 
-	$.ajax({
-		url: 'http://search.twitter.com/search.json',
-		dataType: 'jsonp',
-		data: 'q=hadouken',
-		error: function(xhr, textStatus, errorThrown){
-			console.log('===> Error');
-			//some error handler
-		},
-		success: function(xhr, textStatus, errorThrown) {
-			console.log('===> Success');
-			
-			//Here we call populateTable. As i stated, i let in a function to not mess
-			createTableJSON(xhr);
-		}
-	});
-	
-	
-	function createTableJSON(xhrJson){
-		$('#tableJSON').populateTable(xhrJson,{
-			tableSorterOpt:{
-				widthFixed: true
-			}, tableHeads: {
-				values: [
-					{headText:'User'},
-					{headText: 'Tweet'},
-					{headText:'Metadata'}
-				]
-			},tableData: {
-				emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
-				dataRoot:'results',
-				dataRepeat: {
-				values: [
-					{fieldTxt: '<img src="%{profile_image_url}" style="float:left;width:32px;height:32px;margin:0 10px 5px 0;" alt="" /><strong>%{from_user_name}</strong><br /><a href="http://twitter.com/%{from_user}">@%{from_user}</a>', emptyTxt:'N/D'},
-					{fieldTxt: '%{text}', emptyTxt:'N/D'},
-					{fieldTxt: '%{metadata.result_type}', emptyTxt:'N/D'}
-					]
+			$.ajax({
+				url: 'http://search.twitter.com/search.json',
+				dataType: 'jsonp',
+				data: 'q=hadouken',
+				error: function(xhr, textStatus, errorThrown){
+					console.log('===> Error');
+					//some error handler
+				},
+				success: function(xhr, textStatus, errorThrown) {
+					console.log('===> Success');
+					
+					//Here we call populateTable. As i stated, i let in a function to not mess
+					createTableJSON(xhr);
 				}
+			});
+
+			function createTableJSON(xhrJson){
+				$('#tableJSON').populateTable(xhrJson,{
+					tableSorterOpt:{
+						widthFixed: true
+					}, tableHeads: {
+						values: [
+							{headText:'User'},
+							{headText: 'Tweet'},
+							{headText:'Metadata'}
+						]
+					},tableData: {
+						emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
+						dataRoot:'results',
+						dataRepeat: {
+						values: [
+							{fieldTxt: '<img src="%{profile_image_url}" style="float:left;width:32px;height:32px;margin:0 10px 5px 0;" alt="" /><strong>%{from_user_name}</strong><br /><a href="http://twitter.com/%{from_user}">@%{from_user}</a>', emptyTxt:'N/D'},
+							{fieldTxt: '%{text}', emptyTxt:'N/D'},
+							{fieldTxt: '%{metadata.result_type}', emptyTxt:'N/D'}
+							]
+						}
+					}
+				});
 			}
-		});
-	}
-
-Let's tear this code into pieces:
-
-	$('#tableJSON').populateTable(xhrJson,{
-
-
-
-
 
 
 
