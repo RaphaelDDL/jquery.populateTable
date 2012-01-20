@@ -39,7 +39,7 @@ The `JSON_OBJECT` can be obtained by using `$.parseJSON()` in a string containin
 		}
 
 
-In `tableHeads` is where you setup your `<thead>` and `<tfoot>`. Each `headText` is one Column header/footer. Remember to use the same number of `headText` in `fieldTxt`.
+In `tableHeads` is where you setup your table's `<thead>` and `<tfoot>`. Each `headText` is one Column's header/footer. Remember to use the same number of `headText` in `dataRepeat > values > fieldTxt`.
 
 -------
 
@@ -61,8 +61,8 @@ In `tableData` you will define:
 * `dataRoot`: The root of the info, normally the KEY where all object childs with the key/values are stored. See example below to understand better.
 * `dataRepeat`: Here is where, inside the `values`, declare your columns. See next.
 * `dataRepeat values`: Each object, containing at least `fieldTxt`, will be each column. The number needs to be the same of `tableHeads`, or i will warn you (and will mess up the table, since there is no colspan).
-	* `fieldTxt`: TODO explanation
-	* `emptyTxt`: TODO explanation
+	* `fieldTxt`: Here is where magic happens. You can write anything you want, even HTML. And the script will fill the info you want replacing `%{A_JSON_KEY}` for the desired value. You can access further childs by separating key names with dot `.`. So, if your JSON have a key with an object with more key/values instead of string, you can use `%{1ST_LVL_KEY.CHILD_KEY}` and will work. Does not matter the depth, you can access any child within another, as long as is an Object (That is, `{key:value,key2:value2}`) and not an Array of Objects (`[{key:value},{key:value}]`).
+	* `emptyTxt`: If the value of the `%{A_JSON_KEY}` is null, the value set in `emptyTxt` will be used in it's place.
 
 -------
 		
@@ -70,7 +70,7 @@ In `tableData` you will define:
 			tbCb: testcallback
 		}
 		
-In `tablePreCallback` .. TODO explanation
+In `tablePreCallback` you can call a function before the tablesorter is applied. This is good when, for e.g. your date comes in UNIX and you need to change it to YYYY/MM/dd so tablesorter can successfully sort it.
 	
 -------
 		
@@ -78,15 +78,18 @@ In `tablePreCallback` .. TODO explanation
 			tbCb: testcallback
 		}
 		
-In `tableCallback` .. TODO explanation
+In `tableCallback` you can call a function after everything is done. Good when you need to call an alert, or apply a bind in some element inside the table that you've added it's HTML in `fieldTxt`.
 
 -------
 				
-		tableSorterOpt:{
-			widthFixed: true
-		}
+		tableSorter: {
+			applyTS: false,
+			tableSorterOpt: {
+				widthFixed: true
+			}
+		},
 
-In `tableSorterOpt` .. TODO explanation
+In `tableSorterOpt` you can turn tablesorter support on by setting `applyTS: true`. In `tableSorterOpt` object, you can pass any tablesorter options you want and they will be used when i call tablesorter function. [See TableSorter Documentation][tsdoc]
 
 
 Examples:
@@ -212,4 +215,5 @@ We'll use `results` as our root and it's child objects as our data for rows. The
 
 [rddl]: http://raphaelddl.com
 [tbls]: http://tablesorter.com
+[tsdoc]: http://tablesorter.com/docs/#Configuration
 [xml2json]: http://www.fyneworks.com/jquery/xml-to-json/

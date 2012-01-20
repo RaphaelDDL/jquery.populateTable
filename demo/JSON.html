@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery populateTable v0.1.4</title>
+	
+<!--
+	https://github.com/github/markup/blob/master/README.md
+	https://raw.github.com/github/markup/master/README.md
+	https://github.com/RaphaelDDL/jquery.populateTable
+-->
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Raphael 'DDL' Oliveira" />
+	
+	<!-- Application CSS' -->
+	<link rel="stylesheet" href="bootstrap.css" type="text/css" media="all" />
+
+	<!-- Application JS' -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="jquery.populateTable-0.1.4.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+
+			$.ajax({
+				url: 'http://search.twitter.com/search.json',
+				dataType: 'jsonp', //html,text,script,json/p,xml
+				async: true,
+				data: 'q=hadouken',
+				error: function(xhr, textStatus, errorThrown){
+					console.log('===> Error');
+					
+				},
+				success: function(xhr, textStatus, errorThrown) {
+					console.log('===> Success');
+					createTableJSON(xhr);
+				}
+			});
+			
+			
+			function createTableJSON(xhrJson){
+				$('#tableJSON').populateTable(xhrJson,{
+					tableHeads: {
+						values: [
+							{headText:'User'},
+							{headText: 'Tweet'},
+							{headText:'Metadata'}
+						]
+					},tableData: {
+						emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
+						dataRoot:'results',
+						dataRepeat: {
+						values: [
+							{fieldTxt: '<img src="%{profile_image_url}" style="float:left;width:32px;height:32px;margin:0 10px 5px 0;" alt="" /><strong>%{from_user_name}</strong><br /><a href="http://twitter.com/%{from_user}">@%{from_user}</a>', emptyTxt:'N/D'},
+							{fieldTxt: '%{text}', emptyTxt:'N/D'},
+							{fieldTxt: '%{metadata.result_type}', emptyTxt:'N/D'}
+							]
+						}
+					}
+				});
+			}
+			
+			
+			$.ajax({
+				url: 'http://search.twitter.com/search.json',
+				dataType: 'jsonp', //html,text,script,json/p,xml
+				async: true,
+				data: 'q=shoryuken',
+				error: function(xhr, textStatus, errorThrown){
+					console.log('===> Error');
+					
+				},
+				success: function(xhr, textStatus, errorThrown) {
+					console.log('===> Success');
+					createTableJSONWithTableSorter(xhr);
+				}
+			});
+			function createTableJSONWithTableSorter(xhrJson){
+				$('#createTableJSONWithTableSorter').populateTable(xhrJson,{
+					tableSorter: {
+						applyTS: true,
+						tableSorterOpt: {
+							widthFixed: true
+						}
+					},tableHeads: {
+						values: [
+							{headText:'User'},
+							{headText: 'Tweet'},
+							{headText:'Metadata'}
+						]
+					},tableData: {
+						emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
+						dataRoot:'results',
+						dataRepeat: {
+						values: [
+							{fieldTxt: '<img src="%{profile_image_url}" style="float:left;width:32px;height:32px;margin:0 10px 5px 0;" alt="" /><strong>%{from_user_name}</strong><br /><a href="http://twitter.com/%{from_user}">@%{from_user}</a>', emptyTxt:'N/D'},
+							{fieldTxt: '%{text}', emptyTxt:'N/D'},
+							{fieldTxt: '%{metadata.result_type}', emptyTxt:'N/D'}
+							]
+						}
+					}
+				});
+			}
+		});
+		
+
+	</script>
+
+</head>
+<body id="body">
+<div class="container">
+		<div class="row">
+			<div class="span16">
+				<h1>jQuery populateTable v0.1.4 <small>by <a href="http://raphaelddl.com">RaphaelDDL</a></small></h1>
+			</div>
+		</div>
+	
+		<hr />
+		<hr />
+
+		<div class="row">
+			<div class="span16">
+				<h4>Table populated by Twitter's Search JSON - 'Hadouken' ( http://search.twitter.com/search.json?q=hadouken )</h4>
+				<table class="zebra-striped" id="tableJSON"></table>
+			</div>
+		</div>
+
+		<hr />
+
+		<div class="row">
+			<div class="span16">
+				<h4>Table with TableSorter by Twitter's Search JSON - 'Hadouken' ( http://search.twitter.com/search.json?q=shoryuken )</h4>
+				<table class="zebra-striped" id="createTableJSONWithTableSorter"></table>
+			</div>
+		</div>
+		
+		<hr />
+		<hr />
+		
+		<div class="row">
+			<div class="span16">
+				<p class="txt-center"><small>populateTable &copy; Copyright 2012 - <a href="http://raphaelddl.com">Raphael 'DDL' Oliveira</a></small></p>
+				<p class="txt-center"><small>All other trademarks/codes are the property of their respective owners.</small></p>
+			</div>
+		</div>
+		
+		
+	</div>
+
+</body>
+</html>

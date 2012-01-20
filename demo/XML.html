@@ -3,6 +3,12 @@
 <head>
 	<title>jQuery populateTable v0.1.4</title>
 	
+<!--
+	https://github.com/github/markup/blob/master/README.md
+	https://raw.github.com/github/markup/master/README.md
+	https://github.com/RaphaelDDL/jquery.populateTable
+-->
+	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="author" content="Raphael 'DDL' Oliveira" />
 	
@@ -17,48 +23,9 @@
 
 	<script type="text/javascript">
 		$(function(){
-
-			$.ajax({
-				url: 'http://search.twitter.com/search.json',
-				dataType: 'jsonp', //html,text,script,json/p,xml
-				async: true,
-				data: 'q=hadouken',
-				error: function(xhr, textStatus, errorThrown){
-					console.log('===> Error');
-					
-				},
-				success: function(xhr, textStatus, errorThrown) {
-					console.log('===> Success');
-					createTableJSON(xhr);
-				}
-			});
-			
-			
-			function createTableJSON(xhrJson){
-				$('#tableJSON').populateTable(xhrJson,{
-					tableSorterOpt:{
-						widthFixed: true
-					}, tableHeads: {
-						values: [
-							{headText:'User'},
-							{headText: 'Tweet'},
-							{headText:'Metadata'}
-						]
-					},tableData: {
-						emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
-						dataRoot:'results',
-						dataRepeat: {
-						values: [
-							{fieldTxt: '<img src="%{profile_image_url}" style="float:left;width:32px;height:32px;margin:0 10px 5px 0;" alt="" /><strong>%{from_user_name}</strong><br /><a href="http://twitter.com/%{from_user}">@%{from_user}</a>', emptyTxt:'N/D'},
-							{fieldTxt: '%{text}', emptyTxt:'N/D'},
-							{fieldTxt: '%{metadata.result_type}', emptyTxt:'N/D'}
-							]
-						}
-					}
-				});
-			}
-			
+		
 			xhrXml = $.xml2json('<'+'?xml version="1.0" encoding="UTF-8" ?'+'><blogs><blog><views>714</views><blog_name>Fabíola Reipert</blog_name><blog_url>http://entretenimento.r7.com/blogs/fabiola-reipert</blog_url><link_to_post>http://entretenimento.r7.com/blogs/fabiola-reipert/2012/01/19/pagodeiro-que-namora-atriz-tem-amante-popozuda-em-sao-paulo/</link_to_post><post_title>Pagodeiro que namora atriz tem amante popozuda em São Paulo</post_title></blog><blog><views>589</views><blog_name>Gustavo Sarti</blog_name><blog_url>http://entretenimento.r7.com/blogs/gustavo-sarti</blog_url><link_to_post>http://entretenimento.r7.com/blogs/gustavo-sarti/2012/01/19/gustavo-aprova-juliana-knust/</link_to_post><post_title>Gustavo APROVA: Juliana Knust</post_title></blog><blog><views>491</views><blog_name>Cosme Rímoli</blog_name><blog_url>http://esportes.r7.com/blogs/cosme-rimoli</blog_url><link_to_post>http://esportes.r7.com/blogs/cosme-rimoli/2012/01/19/torcidas-organizadas-prometem-infernizar-a-vida-de-adriano-ate-que-va-embora-do-corinthians-a-rejeicao-e-total-ao-atacante-de-103-quilos/</link_to_post><post_title>Torcidas organizadas prometem infernizar a vida de Adriano. Até que vá embora do Corinthians. A rejeição é total ao atacante de 103 kg&#8230;</post_title></blog><blog><views>388</views><blog_name>Marcos Pereira</blog_name><blog_url>http://noticias.r7.com/blogs/marcos-pereira</blog_url><link_to_post>http://noticias.r7.com/blogs/marcos-pereira/2012/01/19/dois-crimes-duas-medidas/</link_to_post><post_title>Dois crimes, duas medidas</post_title></blog><blog><views>329</views><blog_name>Rubens Ewald Filho</blog_name><blog_url>http://noticias.r7.com/blogs/rubens-ewald-filho</blog_url><link_to_post>http://noticias.r7.com/blogs/rubens-ewald-filho/2012/01/19/estreia-as-aventuras-de-tintim-o-segredo-do-unicornio/</link_to_post><post_title>Estreia: As Aventuras de Tintim &#8211; O Segredo do  Unicórnio</post_title></blog><blog><views>267</views><blog_name>Daniel Castro</blog_name><blog_url>http://noticias.r7.com/blogs/daniel-castro</blog_url><link_to_post>http://noticias.r7.com/blogs/daniel-castro/2012/01/18/video-imagens-de-sexo-no-bbb-foram-ao-ar-em-horario-adequado/</link_to_post><post_title>Vídeo: Imagens de sexo no BBB foram ao ar em horário adequado</post_title></blog><blog><views>167</views><blog_name>Rosana Hermann - Querido Leitor  - R7</blog_name><blog_url>http://noticias.r7.com/blogs/querido-leitor</blog_url><link_to_post>http://noticias.r7.com/blogs/querido-leitor/2012/01/19/meme-para-bom-entendedor-meia-piada/</link_to_post><post_title>Meme &#8211; para bom entendedor meia piada</post_title></blog><blog><views>148</views><blog_name>Edu Guedes</blog_name><blog_url>http://noticias.r7.com/blogs/edu-guedes</blog_url><link_to_post>http://noticias.r7.com/blogs/edu-guedes/2011/07/11/misto-quente-de-forno/</link_to_post><post_title>Misto quente de forno</post_title></blog><blog><views>118</views><blog_name>Julio Sergio Cardozo</blog_name><blog_url>http://noticias.r7.com/blogs/julio-cardozo</blog_url><link_to_post>http://noticias.r7.com/blogs/julio-cardozo/2012/01/19/sem-nenhuma-experiencia-em-busca-do-primeiro-emprego/</link_to_post><post_title>Sem nenhuma experiência, em busca do primeiro emprego</post_title></blog><blog><views>91</views><blog_name>Carolina Minha Filha</blog_name><blog_url>http://entretenimento.r7.com/blogs/carolina-minha-filha</blog_url><link_to_post>http://entretenimento.r7.com/blogs/carolina-minha-filha/2012/01/18/porque-senhor-por-que-acho-que-e-tipo-um-apelo-sera/</link_to_post><post_title>PORQUÊ SENHOR, POR QUÊ? Acho que é tipo um apelo&#8230; Será?</post_title></blog></blogs>');
+			
 			
 			$('#tableXML').populateTable(xhrXml,{
 				tableHeads: {
@@ -72,13 +39,8 @@
 					dataRepeat: {
 					values: [
 						{fieldTxt: '<strong>%{post_title}</strong>', emptyTxt:'N/D'},
-						{fieldTxt: '%{blog_name.name}', emptyTxt:'N/D'}
+						{fieldTxt: '%{blog_name}', emptyTxt:'N/D'}
 						]
-					}
-				}, tableSorter: {
-					applyTS: true,
-					tableSorterOpt:{
-						widthFixed: true
 					}
 				}/*, tableCallback: {
 					tbCb: testcallback
@@ -105,15 +67,8 @@
 			</div>
 		</div>
 	
-		<hr />
 
-		<div class="row">
-			<div class="span16">
-				<h4>Table populated by Twitter's Search JSON - 'Hadouken'</h4>
-				<table class="zebra-striped" id="tableJSON"></table>
-			</div>
-		</div>
-		
+		<hr />		
 		<hr />
 		
 		<div class="row">
@@ -123,6 +78,7 @@
 			</div>
 		</div>
 
+		<hr />
 		<hr />
 
 		<div class="row">
