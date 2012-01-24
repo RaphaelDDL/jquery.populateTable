@@ -1,7 +1,7 @@
 jQuery populateTable by [RaphaelDDL][rddl]
 =============
 
->> README still WIP. Suggestions are welcome.
+> README is a permanent WIP. Suggestions and feedback are always welcome.
 
 
 A jQuery plugin that populate tables in any way user want, including: adding html, concatenating values into a single column, setting default value when key/value is null and other stuff.
