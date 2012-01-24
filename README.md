@@ -1,10 +1,17 @@
 jQuery populateTable by [RaphaelDDL][rddl]
 =============
 
->>---README still WIP. Very confusing. Wait me finish.
+>> README still WIP. Suggestions are welcome.
 
 
 A jQuery plugin that populate tables in any way user want, including: adding html, concatenating values into a single column, setting default value when key/value is null and other stuff.
+
+Demo
+-------
+
+Demo of the Example below in this readme: [Twitter JSON][pijson]
+
+[XML using xml2json][pixml]
 
 
 Installation and Options Explanation
@@ -26,9 +33,9 @@ Markup
 
 The `JSON_OBJECT` can be obtained by using `$.parseJSON()` in a string containing a json structure or in the most common method, with the xhr object returned by an ajax call.
 
+-------
 
-
-### Options
+### Options : tableHeads
 
 		tableHeads: { 
 			values: [
@@ -41,7 +48,7 @@ The `JSON_OBJECT` can be obtained by using `$.parseJSON()` in a string containin
 
 In `tableHeads` is where you setup your table's `<thead>` and `<tfoot>`. Each `headText` is one Column's header/footer. Remember to use the same number of `headText` in `dataRepeat > values > fieldTxt`.
 
--------
+### Options : tableData
 
 		tableData: {
 			emptyMsg: 'N&atilde;o h&aacute; dados dispon&iacute;veis',
@@ -64,7 +71,7 @@ In `tableData` you will define:
 	* `fieldTxt`: Here is where magic happens. You can write anything you want, even HTML. And the script will fill the info you want replacing `%{A_JSON_KEY}` for the desired value. You can access further childs by separating key names with dot `.`. So, if your JSON have a key with an object with more key/values instead of string, you can use `%{1ST_LVL_KEY.CHILD_KEY}` and will work. Does not matter the depth, you can access any child within another, as long as is an Object (That is, `{key:value,key2:value2}`) and not an Array of Objects (`[{key:value},{key:value}]`).
 	* `emptyTxt`: If the value of the `%{A_JSON_KEY}` is null, the value set in `emptyTxt` will be used in it's place.
 
--------
+### Options : Callbacks
 		
 		tablePreCallback: {
 			tbCb: testcallback
@@ -80,7 +87,7 @@ In `tablePreCallback` you can call a function before the tablesorter is applied.
 		
 In `tableCallback` you can call a function after everything is done. Good when you need to call an alert, or apply a bind in some element inside the table that you've added it's HTML in `fieldTxt`.
 
--------
+### Options : tableSorter
 				
 		tableSorter: {
 			applyTS: false,
@@ -201,6 +208,7 @@ We'll use `results` as our root and it's child objects as our data for rows. The
 			}
 
 
+[See script in action][pijson]
 
 
 
@@ -212,7 +220,8 @@ We'll use `results` as our root and it's child objects as our data for rows. The
 
 
 
-
+[pijson]: http://portableideas.net/projects/jquery.populateTable/demo/JSON.html
+[pixml]: http://portableideas.net/projects/jquery.populateTable/demo/XML.html
 [rddl]: http://raphaelddl.com
 [tbls]: http://tablesorter.com
 [tsdoc]: http://tablesorter.com/docs/#Configuration
