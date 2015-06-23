@@ -6,12 +6,16 @@ jQuery populateTable by [RaphaelDDL][rddl]
 
 A jQuery plugin that populate tables in any way user want, including: adding html, concatenating values into a single column, setting default value when key/value is null and other stuff.
 
+Templating before template frameworks were cool.
+
 Demo
 -------
 
 Demo of the Example below in this readme: [Twitter JSON][pijson]
 
 [XML using xml2json][pixml]
+
+Note: These demos need update as they were using Twitter 1.0 api which does not work anymore.
 
 
 Installation and Options Explanation
